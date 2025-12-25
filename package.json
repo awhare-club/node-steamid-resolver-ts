@@ -57,13 +57,13 @@
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.17.0",
+    "@antfu/eslint-config": "^4.19.0",
     "@biomejs/biome": "2.1.2",
     "@types/bun": "latest",
-    "@types/node": "^24.0.15",
+    "@types/node": "^24.10.4",
     "@types/xml2js": "^0.4.14",
-    "bumpp": "^10.2.0",
-    "tsup": "^8.0.0",
+    "bumpp": "^10.3.2",
+    "tsup": "^8.5.1",
     "vitest": "^3.2.4"
   }
 }
