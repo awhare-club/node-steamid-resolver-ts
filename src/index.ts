@@ -1,42 +1,43 @@
 /**
- * Steam ID Resolver - TypeScript Implementation
- * Professional Steam profile/group resolution with comprehensive error handling
+ * Steam ID Resolver
  *
- * @packageDocumentation
+ * Domain folders (`profiles`, `groups`, `sharedfiles`) are the public
+ * capabilities. `steam-community` is the Steam Community XML transport.
  */
 
-// Profile API Functions
 export {
-  customUrlToFullInfo,
-  customUrlToProfileName,
   customUrlToSteamID64,
   steamID64ToCustomUrl,
-  steamID64ToFullInfo,
+} from './profiles/identifiers.js';
+export {
+  customUrlToProfileName,
   steamID64ToProfileName,
-} from './api/profile-api.js';
+} from './profiles/names.js';
+export { customUrlToFullInfo, steamID64ToFullInfo } from './profiles/info.js';
 
-// Group API Functions
-export { groupUrlToFullInfo, groupUrlToGroupID64 } from './api/group-api.js';
+export { groupUrlToGroupID64 } from './groups/identifiers.js';
+export { groupUrlToFullInfo } from './groups/info.js';
 
-// Utility API Functions
-export { isValidSharedfileID } from './api/utility-api.js';
+export { isValidSharedfileID } from './sharedfiles/is-valid-sharedfile-id.js';
 
-// Type Exports
+export type { CallbackFunction } from './callbacks/types.js';
 export type {
-  CallbackFunction,
   ExtendedProfileFields,
-  FullGroupInfo,
   FullProfileInfo,
   MinimalSteamProfile,
+} from './profiles/types.js';
+export type { FullGroupInfo } from './groups/types.js';
+export type {
   ResolverOptions,
   SteamXMLResponse,
-} from './types/steam-types.js';
+} from './steam-community/types.js';
 
-// Error Class Exports
 export {
   SteamAPIError,
   SteamEmptyResponseError,
-  SteamGroupNotFoundError,
+} from './steam-community/errors.js';
+export {
   SteamPrivateProfileError,
   SteamProfileNotFoundError,
-} from './errors/steam-errors.js';
+} from './profiles/errors.js';
+export { SteamGroupNotFoundError } from './groups/errors.js';

@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: ['src/index.ts'],
@@ -6,13 +6,10 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   clean: true,
-  minify: false, // Keep readable for debugging
-  target: 'es2020',
+  minify: false,
+  target: 'es2022',
   outDir: 'dist',
   splitting: false,
   treeshake: true,
-  external: ['xml2js'], // Mark as external dependency
-  banner: {
-    js: '// Steam ID Resolver TypeScript - Professional Steam API library',
-  },
-})
+  external: ['xml2js'],
+});
