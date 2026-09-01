@@ -41,7 +41,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "test": "vitest",
+    "test": "bun test --timeout 30000",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "lint": "biome lint --write",
@@ -51,19 +51,18 @@
     "prepublishOnly": "bun run clean && bun run build"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": ">=5.0.0"
   },
   "dependencies": {
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.19.0",
-    "@biomejs/biome": "2.1.2",
-    "@types/bun": "latest",
-    "@types/node": "^24.10.4",
+    "@biomejs/biome": "2.5.11",
+    "@types/bun": "1.4.0",
+    "@types/node": "^24.13.3",
     "@types/xml2js": "^0.4.14",
-    "bumpp": "^10.3.2",
+    "bumpp": "^12.2.2",
     "tsup": "^8.5.1",
-    "vitest": "^3.2.4"
+    "typescript": "^5.9.3"
   }
 }
