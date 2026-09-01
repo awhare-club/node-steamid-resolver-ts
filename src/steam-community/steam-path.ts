@@ -9,14 +9,20 @@ export function parseSteamCommunityIdentifier(value: string): string {
     );
   }
 
-  if (!value.includes('steamcommunity.com/')) {
-    return value.trim();
+  const trimmedValue = value.trim();
+
+  let parsedUrl: URL;
+  try {
+    parsedUrl = new URL(trimmedValue);
+  } catch {
+    return trimmedValue;
   }
 
-  const segments = value.split('/');
-  if (segments.at(-1) === '') {
-    segments.pop();
+  const host = parsedUrl.hostname.toLowerCase();
+  if (host !== 'steamcommunity.com' && !host.endsWith('.steamcommunity.com')) {
+    return trimmedValue;
   }
 
+  const segments = parsedUrl.pathname.split('/').filter(Boolean);
   return segments.at(-1) ?? '';
 }
